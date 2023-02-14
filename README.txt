@@ -1,3 +1,9 @@
+
+For training the model, Run -> sh demo-train-big-model-v1.sh for training the model
+For finding similar words, Run -> ./distance vectors.bin
+
+------------------------------------------------------
+
 Tools for computing distributed representtion of words
 ------------------------------------------------------
 
