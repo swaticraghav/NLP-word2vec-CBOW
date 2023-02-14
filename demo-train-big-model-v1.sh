@@ -8,28 +8,27 @@
 #
 ###############################################################################################
 
-# This function will convert text to lowercase and remove special characters
-# normalize_text() {
-#   awk '{print tolower($0);}' | sed -e "s/’/'/g" -e "s/′/'/g" -e "s/''/ /g" -e "s/'/ ' /g" -e "s/“/\"/g" -e "s/”/\"/g" \
-#   -e 's/"/ " /g' -e 's/\./ \. /g' -e 's/<br \/>/ /g' -e 's/, / , /g' -e 's/(/ ( /g' -e 's/)/ ) /g' -e 's/\!/ \! /g' \
-#   -e 's/\?/ \? /g' -e 's/\;/ /g' -e 's/\:/ /g' -e 's/-/ - /g' -e 's/=/ /g' -e 's/=/ /g' -e 's/*/ /g' -e 's/|/ /g' \
-#   -e 's/«/ /g' | tr 0-9 " "
-# }
+ This function will convert text to lowercase and remove special characters
+ normalize_text() {
+   awk '{print tolower($0);}' | sed -e "s/’/'/g" -e "s/′/'/g" -e "s/''/ /g" -e "s/'/ ' /g" -e "s/“/\"/g" -e "s/”/\"/g" \
+   -e 's/"/ " /g' -e 's/\./ \. /g' -e 's/<br \/>/ /g' -e 's/, / , /g' -e 's/(/ ( /g' -e 's/)/ ) /g' -e 's/\!/ \! /g' \
+   -e 's/\?/ \? /g' -e 's/\;/ /g' -e 's/\:/ /g' -e 's/-/ - /g' -e 's/=/ /g' -e 's/=/ /g' -e 's/*/ /g' -e 's/|/ /g' \
+   -e 's/«/ /g' | tr 0-9 " "
+ }
 
-# mkdir word2vec
-# cd word2vec
+ mkdir word2vec
+ cd word2vec
 
-# wget http://www.statmt.org/lm-benchmark/1-billion-word-language-modeling-benchmark-r13output.tar.gz
-# tar -xvf 1-billion-word-language-modeling-benchmark-r13output.tar.gz
-# for i in `ls 1-billion-word-language-modeling-benchmark-r13output/training-monolingual.tokenized.shuffled`; do
-#   normalize_text < 1-billion-word-language-modeling-benchmark-r13output/training-monolingual.tokenized.shuffled/$i >> data.txt
-# done
+ wget http://www.statmt.org/lm-benchmark/1-billion-word-language-modeling-benchmark-r13output.tar.gz
+ tar -xvf 1-billion-word-language-modeling-benchmark-r13output.tar.gz
+ for i in `ls 1-billion-word-language-modeling-benchmark-r13output/training-monolingual.tokenized.shuffled`; do
+   normalize_text < 1-billion-word-language-modeling-benchmark-r13output/training-monolingual.tokenized.shuffled/$i >> data.txt
+ done
 
 # Written by Matt Mahoney, June 10, 2006.  This program is released to the public domain.
 
 gcc /Users/swatihu/Downloads/NLP-hw1/project-c/files/word2vec.c -o word2vec -lm -pthread -O3 -mcpu=native -funroll-loops
 gcc /Users/swatihu/Downloads/NLP-hw1/project-c/files/distance.c -o distance
 
-# time /Users/swatihu/Downloads/NLP-hw1/project-c/files/word2vec -train word2vec/data.txt -output vectors.bin -cbow 1 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 10
-# ./word2vec -train data.txt -output vectors.bin -cbow 1 -size 500 -window 10 -negative 10 -hs 0 -sample 1e-5 -threads 40 -binary 1 -iter 10 -min-count 10
-# /Users/swatihu/Downloads/NLP-hw1/project-c/files/distance vectors.bin
+./word2vec -train data.txt -output vectors.bin -cbow 1 -size 500 -window 10 -negative 10 -hs 0 -sample 1e-5 -threads 40 -binary 1 -iter 10 -min-count 10
+./distance vectors.bin
