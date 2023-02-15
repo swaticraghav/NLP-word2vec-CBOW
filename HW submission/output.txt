@@ -1,0 +1,191 @@
+1. For the word - good - (This is extra)
+
+Enter word or sentence (EXIT to break): good
+Word: good  Position in vocabulary: 192
+
+                                              Word       Cosine distance
+------------------------------------------------------------------------
+                                               bad              0.729632
+                                            decent              0.708985
+                                              nice              0.696323
+                                          terrific              0.635081
+                                             great              0.620359
+                                         wonderful              0.616765
+                                             happy              0.612756
+                                         fantastic              0.599660
+                                            better              0.587080
+                                             lousy              0.585388
+                                         excellent              0.576429
+                                           perfect              0.569908
+                                            really              0.540371
+                                              wise              0.533760
+                                       interesting              0.533680
+                                           amazing              0.532138
+                                              best              0.531550
+                                           helpful              0.529854
+                                          sensible              0.520682
+                                             maybe              0.518214
+                                       comfortable              0.513032
+                                        definitely              0.512101
+                                              easy              0.509879
+                                            always              0.507016
+                                             lucky              0.503517
+                                             scary              0.502319
+                                               fun              0.500848
+                                        marvellous              0.496929
+                                          mediocre              0.494500
+                                               odd              0.492782
+                                              true              0.487927
+                                             funny              0.487870
+                                           awesome              0.487078
+                                           healthy              0.487057
+                                              dumb              0.486754
+                                         admirable              0.486016
+                                              iffy              0.485071
+                                            boring              0.481416
+                                             tough              0.480741
+                                         obviously              0.480662
+
+
+2. For the word - cat
+Enter word or sentence (EXIT to break): cat
+Word: cat  Position in vocabulary: 4488
+
+                                              Word       Cosine distance
+------------------------------------------------------------------------
+                                               dog              0.773272
+                                              cats              0.762428
+                                            feline              0.753396
+                                             tabby              0.712428
+                                             puppy              0.706381
+                                           raccoon              0.683860
+                                            rabbit              0.679622
+                                            kitten              0.667288
+                                               rat              0.666993
+                                           kittens              0.655165
+                                            monkey              0.655068
+                                            rodent              0.652880
+                                             pooch              0.652204
+                                            piglet              0.649361
+                                             snake              0.643864
+                                           hamster              0.642894
+                                               pug              0.637086
+                                             furry              0.636342
+                                              dogs              0.632647
+                                            poodle              0.632387
+                                            parrot              0.631937
+                                           puppies              0.629895
+                                         dachshund              0.627339
+                                              paws              0.623147
+                                           rabbits              0.619471
+                                               pet              0.618103
+                                          labrador              0.615951
+                                               pup              0.615192
+                                           felines              0.611917
+                                             moggy              0.608238
+                                        pomeranian              0.607492
+                                          hedgehog              0.606374
+                                             mouse              0.602096
+                                               paw              0.601132
+                                            pigeon              0.600505
+                                         schnauzer              0.599271
+                                             hound              0.596909
+                                         tarantula              0.591743
+                                            possum              0.589163
+                                          creature              0.588560
+
+
+3. For the word - she
+Enter word or sentence (EXIT to break): she
+Word: she  Position in vocabulary: 66
+
+                                              Word       Cosine distance
+------------------------------------------------------------------------
+                                               her              0.765394
+                                                he              0.747476
+                                           herself              0.721836
+                                              hers              0.675328
+                                            mother              0.658920
+                                             woman              0.638733
+                                           husband              0.628185
+                                          daughter              0.598166
+                                              girl              0.580203
+                                                me              0.570104
+                                               mum              0.566119
+                                           someone              0.565029
+                                       grandmother              0.564022
+                                               him              0.560897
+                                          teenager              0.536399
+                                               mom              0.535274
+                                                ms              0.534287
+                                         boyfriend              0.533961
+                                       hairdresser              0.532051
+                                                 i              0.525202
+                                              aunt              0.523451
+                                               dad              0.523284
+                                             never              0.522261
+                                            father              0.515107
+                                           palanco              0.512632
+                                               mrs              0.505712
+                                             nanny              0.501786
+                                             lover              0.499056
+                                                my              0.498132
+                                           fiancé               0.493258
+                                       housekeeper              0.492173
+                                          waitress              0.490955
+                                            friend              0.490085
+                                            doctor              0.489453
+                                           kusaywa              0.487999
+                                           toddler              0.487971
+                                        stepmother              0.487515
+                                              wife              0.485645
+                                            nobody              0.483970
+                                               boy              0.480512
+
+
+4. For the word - like 
+Enter word or sentence (EXIT to break): like
+Word: like  Position in vocabulary: 96
+
+                                              Word       Cosine distance
+------------------------------------------------------------------------
+                                             weird              0.656209
+                                             crazy              0.620061
+                                             silly              0.594382
+                                             scary              0.584745
+                                           strange              0.572513
+                                               odd              0.571524
+                                        everywhere              0.565038
+                                              cute              0.548568
+                                             likes              0.548115
+                                            really              0.545433
+                                              nice              0.545394
+                                            unlike              0.542945
+                                             maybe              0.540941
+                                          nowadays              0.540904
+                                            boring              0.531885
+                                              akin              0.531790
+                                             liked              0.528310
+                                            prefer              0.524827
+                                          resemble              0.520764
+                                             loves              0.515067
+                                            always              0.514137
+                                          annoying              0.514134
+                                           besides              0.512948
+                                               ish              0.511754
+                                             fancy              0.510179
+                                               fun              0.508616
+                                       incongruous              0.508123
+                                            pretty              0.507584
+                                             funny              0.506682
+                                              sort              0.505522
+                                              dumb              0.500825
+                                             wacky              0.499394
+                                              kind              0.499296
+                                           askance              0.499192
+                                         basically              0.498469
+                                             goofy              0.498379
+                                          actually              0.496596
+                                         sometimes              0.495812
+                                            creepy              0.490223
+                                             bunch              0.488252
