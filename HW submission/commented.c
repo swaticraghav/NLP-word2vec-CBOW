@@ -408,6 +408,9 @@ void *TrainModelThread(void *id) {
   real *neu1e = (real *)calloc(layer1_size, sizeof(real));
 
   // In the line below, train file 'data.txt' is read using fopen function
+  // What input format does Word2Vec require
+  // Word2vec - Its input is a text corpus and its output is a set of vectors.
+  // Input = data.txt (text corpus) and output = vec.txt
   FILE *fi = fopen(train_file, "rb");
 
   fseek(fi, file_size / (long long)num_threads * (long long)id, SEEK_SET);
@@ -518,6 +521,9 @@ void *TrainModelThread(void *id) {
 
         // We are creating the context of the word.
         // We capture 100 words now starting from (last_word * layer1_size) to (c + (last_word * layer1_size)).
+        // This part answers - How does CBOW compose context embeddings?
+        // Say last word = 10 and layer 1 size = 100, then we would consider
+        // from 0 + 10 * 100 = 1k to 99 + 10 * 100 = 1099
         for (c = 0; c < layer1_size; c++) neu1[c] += syn0[c + last_word * layer1_size];
         cw++;
       }
@@ -547,6 +553,7 @@ void *TrainModelThread(void *id) {
 
         // NEGATIVE SAMPLING
         // For the target word, if the give word is in neighbourhood, it gets label 1 or else 0
+        // This way we decide the context of the target word
         // For negative sample, we pick a word at random from the dictionary and make its label 0.
         if (negative > 0) for (d = 0; d < negative + 1; d++) {
           if (d == 0) {
@@ -561,7 +568,8 @@ void *TrainModelThread(void *id) {
           }
           l2 = target * layer1_size;
           f = 0;
-
+            
+          // syn1neg - weights for the negative sampling
           // This is the forward pass
           // f value is calculated based on neu1 and syn1neg
           for (c = 0; c < layer1_size; c++) f += neu1[c] * syn1neg[c + l2];
@@ -573,6 +581,7 @@ void *TrainModelThread(void *id) {
           else g = (label - expTable[(int)((f + MAX_EXP) * (EXP_TABLE_SIZE / MAX_EXP / 2))]) * alpha;
 
           // g is propagated from output layer to hidden layer
+          // Negative sampling weights are used here
           for (c = 0; c < layer1_size; c++) neu1e[c] += g * syn1neg[c + l2];
 
           // Update each context vector
@@ -792,6 +801,26 @@ int main(int argc, char **argv) {
     printf("\t-cbow <int>\n");
     printf("\t\tUse the continuous bag of words model; default is 1 (use 0 for skip-gram model)\n");
     printf("\nExamples:\n");
+      
+    //
+    // Question - Any other parameters apart from the word embeddings and context embeddings?
+    // Below are the parameters used for word2vec -
+    // 1. text corpus - training data - data.txt.
+    // 2. To limit the number of words in each context,
+    // a parameter called “window size” is used.
+    // 3. size - batch size - It is the number of words we process at a time
+    // 4. sample - Setting the threshold for the number of times a word must occur.
+    // 5. hs - Use Hierarchical Softmax - Here we create binary Huffman tree using the word counts. Frequent words will have short uniqe binary codes
+    // 6. negative - Number of neagative examples we are taking for negative sampling
+    // 7. threads - we specify the number of threads for out process
+    // 8. iter - Number of epochs we would want training to happen on
+    // 9. min - count - This is given to discard the words with very low frequency
+    // 10. alpha - to set the starting learning rate
+    // 11. classes - words classes ouput
+    // 12. binary - to decide if we want to save the resulting vectors in binary format model
+    // 13. We can also specify the file where we can save the vocabulary
+    // 14. Vocab is picked up from file and not from training data directly
+    // 15. We can decide if we want to use CBOW or skipgram architecture
     printf("./word2vec -train data.txt -output vec.txt -size 200 -window 5 -sample 1e-4 -negative 5 -hs 0 -binary 0 -cbow 1 -iter 3\n\n");
     return 0;
   }
